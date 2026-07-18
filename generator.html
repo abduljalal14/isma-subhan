@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Link Generator | Banu & Inayah</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --gold: #9d7d2a;
+      --gold-light: #dfc16d;
+      --gold-dark: #705417;
+      --brown: #332721;
+      --cream: #fbf8f3;
+      --white: #ffffff;
+      --success: #2e7d32;
+      --shadow-sm: 0 4px 15px rgba(0,0,0,0.05);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+      --glass-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: rgba(255, 255, 255, 0.5);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--cream);
+      color: var(--brown);
+      line-height: 1.6;
+      padding: 40px 20px;
+      /* Elegant mandala tile pattern matching the main invitation */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M9 0c-4.97 0-9 4.03-9 9 0 4.97 4.03 9 9 9 4.97 0 9-4.03 9-9 0-4.97-4.03-9-9-9zm0 1c4.418 0 8 3.582 8 8s-3.582 8-8 8-8-3.582-8-8 3.582-8 8-8zm102-1c-4.97 0-9 4.03-9 9 0 4.97 4.03 9 9 9 4.97 0 9-4.03 9-9 0-4.97-4.03-9-9-9zm0 1c4.418 0 8 3.582 8 8s-3.582 8-8 8-8-3.582-8-8 3.582-8 8-8zM9 102c-4.97 0-9 4.03-9 9 0 4.97 4.03 9 9 9 4.97 0 9-4.03 9-9 0-4.97-4.03-9-9-9zm0 1c4.418 0 8 3.582 8 8s-3.582 8-8 8-8-3.582-8-8 3.582-8 8-8zm102-1c-4.97 0-9 4.03-9 9 0 4.97 4.03 9 9 9 4.97 0 9-4.03 9-9 0-4.97-4.03-9-9-9zm0 1c4.418 0 8 3.582 8 8s-3.582 8-8 8-8-3.582-8-8 3.582-8 8-8zM60 42c-9.94 0-18 8.06-18 18s8.06 18 18 18 18-8.06 18-18-8.06-18-18-18zm0 1c9.39 0 17 7.61 17 17S69.39 77 60 77 43 69.39 43 60s7.61-17 17-17z' fill='%239d7d2a' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 14px;
+      color: #7c685c;
+    }
+
+    .card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(10px);
+      margin-bottom: 30px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    @media (max-width: 768px) {
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      color: var(--gold-dark);
+    }
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid rgba(112, 84, 23, 0.2);
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
+      background: var(--white);
+      color: var(--brown);
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(223, 193, 109, 0.3);
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 28px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--white);
+      box-shadow: 0 4px 15px rgba(112, 84, 23, 0.2);
+      width: 100%;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(112, 84, 23, 0.35);
+    }
+
+    .btn-secondary {
+      background: var(--brown);
+      color: var(--white);
+      font-size: 13px;
+      padding: 8px 16px;
+      border-radius: 8px;
+    }
+
+    .btn-secondary:hover {
+      background: var(--gold-dark);
+    }
+
+    .btn-wa {
+      background-color: #25D366;
+      color: white;
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+
+    .btn-wa:hover {
+      background-color: #128C7E;
+      transform: scale(1.03);
+    }
+
+    .btn-copy-small {
+      background-color: var(--white);
+      color: var(--brown);
+      border: 1px solid rgba(112, 84, 23, 0.2);
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+
+    .btn-copy-small:hover {
+      background-color: var(--gold-light);
+      border-color: var(--gold);
+    }
+
+    /* Result Section */
+    .result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .result-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      color: var(--gold-dark);
+    }
+
+    .result-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(112, 84, 23, 0.15);
+      background: var(--white);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    th {
+      background: rgba(112, 84, 23, 0.05);
+      color: var(--gold-dark);
+      font-weight: 600;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(112, 84, 23, 0.15);
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      vertical-align: middle;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .link-text {
+      font-family: monospace;
+      color: var(--gold-dark);
+      background: rgba(112, 84, 23, 0.04);
+      padding: 4px 8px;
+      border-radius: 4px;
+      max-width: 250px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+    }
+
+    .actions-cell {
+      display: flex;
+      gap: 6px;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(43, 34, 29, 0.95);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 13px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .template-info {
+      font-size: 11px;
+      color: #8c786c;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Wedding Link Generator</h1>
+      <p>Buat tautan undangan khusus untuk banyak tamu secara cepat dan bagikan langsung lewat WhatsApp</p>
+    </header>
+
+    <div class="card">
+      <form id="generator-form" onsubmit="generateLinks(event)">
+        <div class="form-grid">
+          
+          <!-- Base URL Input -->
+          <div class="form-group">
+            <label for="base-url">URL Base Website</label>
+            <input type="url" id="base-url" value="https://banuinayah.netlify.app" required placeholder="https://domain-anda.com">
+            <span class="template-info">Ganti dengan URL domain hosting Anda (misal Netlify/custom domain).</span>
+          </div>
+
+          <!-- Phone Code / Prefix -->
+          <div class="form-group">
+            <label for="wa-template">Pesan WhatsApp Pengiriman</label>
+            <textarea id="wa-template" rows="3" required>Kepada Yth. Bapak/Ibu/Saudara/i [Nama]
+
+Tanpa mengurangi rasa hormat, perkenankan kami mengundang Anda untuk menghadiri acara pernikahan kami. Detail undangan dapat diakses pada link di bawah ini:
+
+[Link]
+
+Merupakan suatu kehormatan bagi kami apabila Anda berkenan hadir. Terima kasih.
+Banu & Inayah</textarea>
+            <span class="template-info">Gunakan tag <b>[Nama]</b> dan <b>[Link]</b> sebagai penampung otomatis.</span>
+          </div>
+
+          <!-- Names List Textarea -->
+          <div class="form-group full-width">
+            <label for="names-list">Daftar Nama Tamu (Satu Nama per Baris)</label>
+            <textarea id="names-list" rows="8" required placeholder="Contoh:&#10;Bapak Joko Susilo&#10;Ibu Rahayu & Suami&#10;Rian Hermawan&#10;Keluarga Besar Bpk. H. Ahmad"></textarea>
+            <span class="template-info">Masukkan daftar nama tamu. Setiap baris baru akan dibuatkan satu link tersendiri.</span>
+          </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Buat Tautan Undangan
+        </button>
+      </form>
+    </div>
+
+    <!-- Result Card -->
+    <div class="card" id="result-card" style="display: none;">
+      <div class="result-header">
+        <h2 class="result-title">Daftar Link Undangan (<span id="total-guests">0</span> Tamu)</h2>
+        <div class="result-actions">
+          <button class="btn btn-secondary" onclick="exportCSV()">
+            <i class="fa-solid fa-file-csv"></i> Ekspor CSV
+          </button>
+          <button class="btn btn-secondary" onclick="copyAllLinks()">
+            <i class="fa-solid fa-copy"></i> Salin Semua Link
+          </button>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table id="result-table">
+          <thead>
+            <tr>
+              <th style="width: 5%;">No</th>
+              <th style="width: 25%;">Nama Tamu</th>
+              <th style="width: 40%;">Link Undangan</th>
+              <th style="width: 30%;">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="result-tbody">
+            <!-- Dynamic rows go here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">Link berhasil disalin!</div>
+
+  <script>
+    let generatedData = [];
+
+    function generateLinks(e) {
+      e.preventDefault();
+      
+      const baseUrlInput = document.getElementById('base-url').value.trim();
+      const namesList = document.getElementById('names-list').value;
+      const waTemplate = document.getElementById('wa-template').value;
+      
+      // Clean up base URL (make sure it doesn't end with slash if not needed, but keep parameters working)
+      let cleanedBaseUrl = baseUrlInput;
+      if (cleanedBaseUrl.endsWith('/')) {
+        cleanedBaseUrl = cleanedBaseUrl.slice(0, -1);
+      }
+
+      // Split names by newline and filter out empty lines
+      const names = namesList.split('\n')
+        .map(name => name.trim())
+        .filter(name => name.length > 0);
+
+      if (names.length === 0) {
+        alert('Silakan masukkan minimal 1 nama tamu.');
+        return;
+      }
+
+      const tbody = document.getElementById('result-tbody');
+      tbody.innerHTML = '';
+      generatedData = [];
+
+      names.forEach((name, index) => {
+        // Encode parameters for the URL: ?to=Nama+Tamu
+        const encodedName = encodeURIComponent(name).replace(/%20/g, '+');
+        const customUrl = `${cleanedBaseUrl}/?to=${encodedName}`;
+        
+        // Prepare WhatsApp message
+        const waMessage = waTemplate
+          .replace(/\[Nama\]/g, name)
+          .replace(/\[Link\]/g, customUrl);
+        const encodedWaMessage = encodeURIComponent(waMessage);
+        const waShareLink = `https://api.whatsapp.com/send?text=${encodedWaMessage}`;
+
+        generatedData.push({
+          no: index + 1,
+          name: name,
+          url: customUrl,
+          waLink: waShareLink,
+          waMessage: waMessage
+        });
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${index + 1}</td>
+          <td><strong>${escapeHtml(name)}</strong></td>
+          <td>
+            <span class="link-text" id="url-${index}">${customUrl}</span>
+          </td>
+          <td class="actions-cell">
+            <button class="btn btn-copy-small" onclick="copyToClipboard('url-${index}', 'Link undangan berhasil disalin!')" title="Salin Tautan">
+              <i class="fa-regular fa-copy"></i> Tautan
+            </button>
+            <button class="btn btn-copy-small" onclick="copyRawText(${index})" title="Salin Pesan WA Lengkap">
+              <i class="fa-regular fa-message"></i> Pesan WA
+            </button>
+            <a href="${waShareLink}" target="_blank" class="btn btn-wa" title="Kirim via WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i> Kirim WA
+            </a>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      document.getElementById('total-guests').textContent = names.length;
+      document.getElementById('result-card').style.display = 'block';
+      
+      // Smooth scroll to results
+      document.getElementById('result-card').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Helper functions
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.innerText = str;
+      return div.innerHTML;
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    function copyToClipboard(elementId, successMsg) {
+      const text = document.getElementById(elementId).textContent;
+      navigator.clipboard.writeText(text)
+        .then(() => showToast(successMsg))
+        .catch(err => console.error('Gagal menyalin:', err));
+    }
+
+    function copyRawText(index) {
+      const message = generatedData[index].waMessage;
+      navigator.clipboard.writeText(message)
+        .then(() => showToast('Pesan WhatsApp lengkap berhasil disalin!'))
+        .catch(err => console.error('Gagal menyalin:', err));
+    }
+
+    function copyAllLinks() {
+      if (generatedData.length === 0) return;
+      const links = generatedData.map(d => `${d.name}: ${d.url}`).join('\n');
+      navigator.clipboard.writeText(links)
+        .then(() => showToast('Semua link berhasil disalin ke clipboard!'))
+        .catch(err => console.error('Gagal menyalin:', err));
+    }
+
+    function exportCSV() {
+      if (generatedData.length === 0) return;
+      
+      let csvContent = "data:text/csv;charset=utf-8,No,Nama Tamu,Link Undangan\n";
+      generatedData.forEach(d => {
+        // Wrap names containing commas in quotes
+        const cleanedName = d.name.includes(',') ? `"${d.name}"` : d.name;
+        csvContent += `${d.no},${cleanedName},${d.url}\n`;
+      });
+
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", "daftar_undangan_banu_inayah.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>

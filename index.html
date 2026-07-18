@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan | Isma & Subhan</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons for Premium Navigation & Buttons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="lock">
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Background Music Element -->
+  <audio id="music" loop>
+    <source src="musik.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Floating Music disk widget -->
+  <div class="music-widget">
+    <button class="music-btn" id="musicBtn" type="button" onclick="toggleMusic()" aria-label="Toggle Background Music">
+      <i class="fa-solid fa-compact-disc"></i>
+    </button>
+    <div class="equalizer">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- Falling leaves elements (multiplied) -->
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+  <div class="petal"><i class="fa-solid fa-heart"></i></div>
+
+  <!-- Cover / Opening overlay -->
+  <div class="cover" id="cover">
+    <div class="cover-content">
+      <!-- EDIT HERE: Opening Photo -->
+      <div class="photo-frame">
+        <img src="images/foto-cover.jpg" alt="Cover Mempelai" loading="eager">
+      </div>
+      <div class="small-title">The Wedding Of</div>
+      <div class="big-name">Isma & Subhan</div>
+      <div class="guest-text">Kepada Yth. Bapak/Ibu/Saudara/i</div>
+      <div id="guestName">Nama Tamu</div>
+      <div class="invite-desc">Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir di acara pernikahan kami.</div>
+      <button class="open-btn" type="button" onclick="openInvitation()">
+        <i class="fa-solid fa-envelope-open-text" style="margin-right: 8px;"></i> Buka Undangan
+      </button>
+      <div class="apology">*Mohon maaf apabila ada kesalahan penulisan nama/gelar</div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Home / Hero Section -->
+    <section class="hero reveal" id="home">
+      <div class="container">
+        <!-- EDIT HERE: Hero Photo -->
+        <div class="hero-photo">
+          <img src="images/foto-utama.jpg" alt="Foto Utama" loading="eager">
+        </div>
+        <div class="small-title">The Wedding Of</div>
+        <div class="hero-title">Isma & Subhan</div>
+        
+        <div class="countdown">
+          <div class="timebox"><b id="days">0</b><span>Hari</span></div>
+          <div class="timebox"><b id="hours">0</b><span>Jam</span></div>
+          <div class="timebox"><b id="minutes">0</b><span>Menit</span></div>
+          <div class="timebox"><b id="seconds">0</b><span>Detik</span></div>
+        </div>
+        
+        <div class="hero-date">Rabu, 02 September 2026</div>
+        <a class="save-btn" href="#event">
+          <i class="fa-regular fa-calendar-check"></i> Save The Date
+        </a>
+      </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="reveal" id="quote">
+      <div class="container quote-card">
+        <p>"Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."</p>
+        <b>Q.S. Ar-Rum : 21</b>
+      </div>
+    </section>
+
+    <!-- Couple Section -->
+    <section class="reveal" id="couple">
+      <div class="bg-shape bg-shape-1"></div>
+      <div class="bg-shape bg-shape-2"></div>
+      <div class="container">
+        <div class="quote-card" style="margin-bottom: 40px;">
+          <div class="salam">Assalamu’alaikum Wr. Wb.</div>
+          <p>Dengan memohon Ridho dan Rahmat Allah SWT, kami mengharap kehadiran Bapak/Ibu/Saudara/i pada acara resepsi pernikahan kami:</p>
+        </div>
+
+        <div class="couple-grid">
+          <!-- Groom Card -->
+          <div class="person glass-card">
+            <!-- EDIT HERE: Groom Photo -->
+            <div class="photo-frame">
+              <img src="images/foto-cewe.jpg" alt="Isma" loading="lazy">
+            </div>
+            <h3>Ismatun Hawa</h3>
+            <p>Putri dari:<br><b>Bapak Nursid & Ibu Daijah</b><br>Dk. Mandelun - Kec. Paninggaran</p>
+          </div>
+          
+          <!-- Bride Card -->
+          <div class="person glass-card">
+            <!-- EDIT HERE: Bride Photo -->
+            <div class="photo-frame">
+              <img src="images/foto-cowo.jpg" alt="Subhan" loading="lazy">
+            </div>
+            <h3>Subhan Ahmad</h3>
+            <p>Putra dari:<br><b>Bapak Tarmadi & Ibu Waryonah</b><br>Dk. Sumingkir - Kec. Paninggaran</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Detail Section -->
+    <section class="reveal" id="event">
+      <div class="bg-shape bg-shape-3"></div>
+      <div class="container event-wrap">
+        <div class="section-title">
+          <h2>Acara Pernikahan</h2>
+        </div>
+        <div class="event-intro">Insya Allah acara akan dilaksanakan pada:</div>
+        
+        <div class="event-grid">
+          <!-- Akad Nikah Card -->
+          <div class="event-card">
+            <div class="ring-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
+            <h3>Akad Nikah</h3>
+            <p>
+              <strong>📅 Rabu, 2 September 2026</strong><br>
+              🕘 Pukul : 07.00 WIB s/d Selesai<br>
+              📍 Di Rumah Kediaman Mempelai Wanita
+            </p>
+          </div>
+          
+          <!-- Resepsi Card -->
+          <div class="event-card">
+            <div class="ring-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+            <h3>Resepsi Nikah</h3>
+            <p>
+              <strong>📅 Rabu, 2 September 2026</strong><br>
+              🕢 Pukul : 12.30 WIB - Selesai
+            </p>
+          </div>
+        </div>
+
+        <div class="address">
+          <i class="fa-solid fa-location-dot" style="color: var(--gold); margin-bottom: 8px; font-size: 20px;"></i><br>
+          <strong>Lokasi Akad & Resepsi (Kediaman Mempelai Wanita)</strong><br>
+          Dk. Mandelun Rt.04/Rw.02 Desa Lambanggelun, Kecamatan Paniggaran, Kabupaten Pekalongan
+        </div>
+      </div>
+    </section>
+
+    <!-- Maps / Location Section -->
+    <section class="reveal" id="maps">
+      <div class="container" style="text-align:center">
+        <div class="section-title">
+          <h2>Lokasi Acara</h2>
+        </div>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d493.5490530708579!2d109.55963851506512!3d-7.135141411333045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fe37043665fb3%3A0xcef2647122744f15!2sMushola%20RT%2003!5e1!3m2!1sen!2sid!4v1784375754630!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <a class="map-btn" target="_blank" href="https://maps.app.goo.gl/aW4r46YAjuWCouXM9">
+          <i class="fa-solid fa-map-location-dot"></i> Buka Google Maps
+        </a>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <!-- <section class="reveal" id="gallery">
+      <div class="container">
+        <div class="section-title">
+          <h2>Galeri Foto</h2>
+        </div>
+        <div class="gallery">
+          <img src="images/foto-1.jpg" alt="Galeri 1" loading="lazy">
+          <img src="images/foto-2.jpg" alt="Galeri 2" loading="lazy">
+          <img src="images/foto-3.jpg" alt="Galeri 3" loading="lazy">
+          <img src="images/foto-4.jpg" alt="Galeri 4" loading="lazy">
+          <img src="images/foto-5.jpg" alt="Galeri 5" loading="lazy">
+          <img src="images/foto-6.jpg" alt="Galeri 6" loading="lazy">
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Gift / Digital Envelope Section -->
+    <section class="reveal" id="gift">
+      <div class="container">
+        <div class="section-title">
+          <h2>Kirim Kado</h2>
+        </div>
+        <div class="gift-card">
+          <p style="margin-bottom: 28px;">Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi kado secara cashless di bawah ini:</p>
+          
+          <!-- EDIT HERE: Bank Details -->
+          <div style="padding: 24px; background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6)); border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: var(--shadow-sm); text-align: left; position: relative; max-width: 420px; margin-left: auto; margin-right: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <img src="images/logo-bri.png" alt="Logo BRI" style="height: 28px; object-fit: contain;">
+              <span style="font-size: 11px; font-weight: 600; color: #1d4c86; text-transform: uppercase; letter-spacing: 1px;">Debit Card</span>
+            </div>
+            <p style="font-size: 13px; color: #66544a; margin-bottom: 4px;">Nomor Rekening</p>
+            <b id="rekening1" style="font-size: 22px; font-family: 'Cormorant Garamond', serif; letter-spacing: 1.5px; color: var(--brown); display: block; margin-bottom: 12px;">0651 0101 8768 506</b>
+            <p style="font-size: 14px; font-weight: 600; color: var(--brown); margin-bottom: 16px;">A.n Ismatun Hawa</p>
+            <button class="copy-btn" type="button" onclick="copyText('rekening1')" style="margin: 0; display: inline-flex; align-items: center; gap: 6px;">
+              <i class="fa-regular fa-copy"></i> Salin Rekening
+            </button>
+          </div>
+
+          <!-- EDIT HERE: E-Wallet Details -->
+          <div style="padding: 24px; background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6)); border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: var(--shadow-sm); text-align: left; position: relative; max-width: 420px; margin-left: auto; margin-right: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <img src="images/logo-dana.webp" alt="Logo Dana" style="height: 28px; object-fit: contain;">
+              <span style="font-size: 11px; font-weight: 600; color: #1d4c86; text-transform: uppercase; letter-spacing: 1px;">E-Wallet</span>
+            </div>
+            <p style="font-size: 13px; color: #66544a; margin-bottom: 4px;">Nomor Dana</p>
+            <b id="dana1" style="font-size: 22px; font-family: 'Cormorant Garamond', serif; letter-spacing: 1.5px; color: var(--brown); display: block; margin-bottom: 12px;">081460451163</b>
+            <p style="font-size: 14px; font-weight: 600; color: var(--brown); margin-bottom: 16px;">A.n Ismatun Hawa</p>
+            <button class="copy-btn" type="button" onclick="copyText('dana1')" style="margin: 0; display: inline-flex; align-items: center; gap: 6px;">
+              <i class="fa-regular fa-copy"></i> Salin Dana
+            </button>
+          </div>
+
+          <!-- EDIT HERE: Bank Details -->
+          <div style="padding: 24px; background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6)); border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: var(--shadow-sm); text-align: left; position: relative; max-width: 420px; margin-left: auto; margin-right: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <img src="images/logo-seabank.webp" alt="Logo SeaBank" style="height: 28px; object-fit: contain;">
+              <span style="font-size: 11px; font-weight: 600; color: #1d4c86; text-transform: uppercase; letter-spacing: 1px;">Debit Card</span>
+            </div>
+            <p style="font-size: 13px; color: #66544a; margin-bottom: 4px;">Nomor Rekening</p>
+            <b id="rekening1" style="font-size: 22px; font-family: 'Cormorant Garamond', serif; letter-spacing: 1.5px; color: var(--brown); display: block; margin-bottom: 12px;">901886268928</b>
+            <p style="font-size: 14px; font-weight: 600; color: var(--brown); margin-bottom: 16px;">A.n Ismatun Hawa</p>
+            <button class="copy-btn" type="button" onclick="copyText('rekening1')" style="margin: 0; display: inline-flex; align-items: center; gap: 6px;">
+              <i class="fa-regular fa-copy"></i> Salin Rekening
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wishes / Comment Section -->
+    <section class="reveal" id="wish">
+      <div class="bg-shape bg-shape-1"></div>
+      <div class="bg-shape bg-shape-2"></div>
+      <div class="container">
+        <div class="section-title">
+          <h2>Ucapan & Doa</h2>
+          <p class="script" style="font-size:36px; color:var(--gold); margin-top: 8px;">Beri Ucapan Restu</p>
+        </div>
+        
+        <div class="wish-box">
+          <div id="commentCount">0 Comments</div>
+          
+          <div class="wish-count">
+            <div class="count-card green">
+              <h2 id="hadirCount">0</h2>
+              <p>Hadir</p>
+            </div>
+            <div class="count-card red">
+              <h2 id="tidakHadirCount">0</h2>
+              <p>Tidak Hadir</p>
+            </div>
+          </div>
+          
+          <div class="wish-form">
+            <input id="name" type="text" placeholder="Nama Anda" maxlength="50" required>
+            <textarea id="message" rows="4" placeholder="Tulis ucapan dan doa restu Anda..." maxlength="400" required></textarea>
+            <select id="attendance">
+              <option value="Konfirmasi Kehadiran" disabled selected>Konfirmasi Kehadiran</option>
+              <option value="Hadir">Hadir</option>
+              <option value="Tidak Hadir">Tidak Hadir</option>
+            </select>
+            <button id="submitWishBtn" type="button" onclick="addWish()">
+              <i class="fa-regular fa-paper-plane" style="margin-right: 6px;"></i> Kirim Ucapan
+            </button>
+          </div>
+          
+          <!-- Wishes Display container -->
+          <div class="wishes" id="wishes"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Penutup Section -->
+    <section class="reveal">
+      <div class="container quote-card" style="padding-bottom: 50px;">
+        <div class="section-title">
+          <h2>Mohon Doa Restu</h2>
+        </div>
+        <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.</p>
+        <br>
+        <p>Atas kehadiran dan doa restunya, kami ucapkan terima kasih banyak.</p>
+        <br>
+        <p class="salam" style="font-style: italic;">Wassalamu’alaikum Wr. Wb.</p>
+        
+        <div class="hero-photo" style="margin-top:35px; width: 240px; height: 330px; border-radius: 120px 120px 0 0;">
+          <img src="images/foto-penutup.jpg" alt="Penutup" loading="lazy">
+        </div>
+        <h2 class="hero-title" style="font-size: 54px; margin-top: 10px;">Isma & Subhan</h2>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer dengan Pemesanan Undangan Digital -->
+  <footer style="text-align: center; padding: 24px 20px 100px 20px; font-size: 13px; color: #8c786c;">
+    <p>&copy; 2026 Isma & Subhan. All Rights Reserved.</p>
+    <p style="margin-top: 6px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-dark);">Created by <b>ABJADisen</b></p>
+    <p style="margin-top: 12px;">
+      <a href="https://wa.me/6282325339189" target="_blank" style="color: var(--gold); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border: 1px solid rgba(157, 125, 42, 0.2); border-radius: 20px; background: rgba(255,255,255,0.4); transition: all 0.3s ease;">
+        <i class="fa-brands fa-whatsapp" style="color: #25D366; font-size: 16px;"></i> Pemesanan Undangan Digital
+      </a>
+    </p>
+  </footer>
+
+  <!-- Scroll to top button -->
+  <a href="#home" class="to-top" id="toTopBtn" aria-label="Scroll to top"><i class="fa-solid fa-chevron-up"></i></a>
+
+  <!-- Fixed bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="#home" title="Beranda" class="active"><i class="fa-solid fa-house"></i></a>
+    <a href="#couple" title="Mempelai"><i class="fa-solid fa-heart"></i></a>
+    <a href="#event" title="Acara"><i class="fa-solid fa-calendar-days"></i></a>
+    <a href="#maps" title="Lokasi"><i class="fa-solid fa-map-location"></i></a>
+    <a href="#gallery" title="Galeri"><i class="fa-solid fa-images"></i></a>
+    <a href="#gift" title="Kirim Kado"><i class="fa-solid fa-gift"></i></a>
+    <a href="#wish" title="Ucapan"><i class="fa-solid fa-comment-dots"></i></a>
+  </nav>
+  <script src="js/script.js" type="module"></script>
+</body>
+</html>
